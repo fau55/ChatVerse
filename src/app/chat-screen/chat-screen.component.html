@@ -1,0 +1,68 @@
+<div class="row chatScreen">
+    <div class="col">
+        <header>
+            <div class="row">
+                <div class="col-1 me-2">
+                    <!-- <div class="profpic"> -->
+                        <img src="{{friendProfilePhoto}}" data-bs-toggle="modal" data-bs-target="#friend" class="profpic" width="100%" height="70px" alt="">
+                    <!-- </div> -->
+                </div>
+                <div class="col text-start mt-2">
+                    <h5 class="mb-0">{{chatWithuser}}</h5>
+                    <p class="status mt-0">{{ Status}}</p>
+                </div>
+            </div>
+        </header>
+    </div>
+    <div class="row">
+        <div class="col chats">
+            <div *ngFor="let msg of allChats" class="message-container"
+                [ngClass]="{'sender-message': msg.sender_Id === userId, 'recipient-message': msg.sender_Id !== userId}">
+                <div class="message">
+                    <h6>
+                        <p>{{ msg.messageText }}</p>
+                        <span class="sentAt"> {{ msg.sent_At | date:'h:mm a'}}</span>
+                    </h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-10 input-text">
+            <input type="text" class="form-control input" placeholder="Enter Text" [(ngModel)]="textMessage" (keyup.enter)="updateChat()">
+        </div>
+        <!-- <div class="col-2"></div> -->
+    </div>
+</div>
+
+  <!-- modal to show friend info  -->
+  <!--  data-bs-toggle="modal" data-bs-target="#friend" -->
+       <!-- Modal -->
+       <div class="modal fade" id="friend" tabindex="-1" aria-labelledby="friendModal" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="friendModal" style="color: black">{{chatWithuser}}</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="card text-center">
+                    <img class="card-img-top" src="{{friendProfilePhoto}}" alt="Title" />
+                    <div class="row">
+                        <div class="col">
+                            <h4>"{{friendAboutUs}}"</h4>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">{{friendEmailId}}</h4>
+                        <p class="card-text">Created Account On: {{friendCreatedAccount | date: 'medium'}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer text-center">
+              <button type="button" data-bs-dismiss="modal">Close</button>
+              <!-- <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="updateName()">Save changes</button> -->
+            </div>
+          </div>
+        </div>
+      </div>

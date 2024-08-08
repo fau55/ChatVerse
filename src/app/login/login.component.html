@@ -1,0 +1,30 @@
+<!-- Sign up form -->
+
+<section class="sign-in">
+    <div class="container">
+        <div class="signin-content">
+            <div class="signin-image">
+                <figure><img src="../../assets/images/logins.jpeg" alt="Login image" height="400"></figure>
+                <a routerLink="/register" class="signup-image-link">Create Account</a>
+            </div>
+
+            <div class="signin-form mt-5">
+                <h2 class="form-title">Login</h2>
+                <form class="register-form" id="login-form" [formGroup]="loginControl">
+                    <div class="form-group">
+                        <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                        <input type="email" name="your_name" id="your_name" placeholder="Email Id"
+                            formControlName="email" />
+                    </div>
+                    <div class="form-group">
+                        <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
+                        <input type="password" name="your_pass" id="pass" placeholder="Password"
+                            formControlName="password" />
+                        <img src="../../assets/images/eye.png" width="25" height="25" alt="" (click)="togglePass()">
+                    </div>
+                    <button class="Registerbtn" (click)="loginUser()">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
