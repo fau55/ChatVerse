@@ -11,10 +11,10 @@ export class MessageServicesService {
   constructor(private http: HttpClient) { }
 
   getAllChatsWithChatId(ids: any): Observable<any> {
-    return this.http.post('http://localhost:2500/chatApp/get/all-chats', ids);
+    return this.http.post('https://chatversebackend-rz4p.onrender.com/chatApp/get/all-chats', ids);
   }
 
   updateChats(textMsg: any): Observable<any> {
-    return this.http.post(`http://localhost:2500/chatApp/update/chatHistory/${textMsg._id}`, textMsg);
+    return this.http.post(`https://chatversebackend-rz4p.onrender.com/chatApp/update/chatHistory/${textMsg._id}`, textMsg);
   }
 }
