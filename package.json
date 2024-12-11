@@ -19,6 +19,7 @@
     "@angular/platform-browser": "^17.1.0",
     "@angular/platform-browser-dynamic": "^17.1.0",
     "@angular/router": "^17.1.0",
+    "@bytescale/upload-widget": "^4.27.0",
     "@bytescale/upload-widget-angular": "^9.14.0",
     "bootstrap": "^5.3.3",
     "express": "^4.19.2",
